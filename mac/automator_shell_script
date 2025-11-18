@@ -1,0 +1,150 @@
+#!/bin/zsh
+
+# Check if running on Apple Silicon and if Rosetta 2 is available
+ARCH=$(uname -m)
+if [[ "$ARCH" == "arm64" ]]; then
+    # Check if Rosetta 2 is installed
+    if ! /usr/bin/pgrep -q oahd && ! /usr/sbin/softwareupdate --list 2>&1 | grep -q "Label: com.apple.pkg.RosettaUpdateAuto"; then
+        # Rosetta 2 not installed - offer to install it
+        INSTALL_ROSETTA=$(osascript -e 'tell application "System Events"
+            activate
+            set choice to button returned of (display dialog "This application requires Rosetta 2 to run on Apple Silicon Macs.\n\nWould you like to install it now?" buttons {"Cancel", "Install Rosetta"} default button "Install Rosetta" with title "Dividia Overlay Burner - Rosetta 2 Required")
+            return choice
+        end tell' 2>/dev/null)
+        
+        if [[ "$INSTALL_ROSETTA" == "Install Rosetta" ]]; then
+            # Install Rosetta 2
+            osascript -e 'display dialog "Installing Rosetta 2...\n\nThis may take a few minutes. Please wait." buttons {"OK"} with title "Dividia Overlay Burner" giving up after 2'
+            /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+            
+            if [[ $? -eq 0 ]]; then
+                osascript -e 'display dialog "Rosetta 2 installed successfully!\n\nPlease run the application again." buttons {"OK"} with title "Dividia Overlay Burner"'
+            else
+                osascript -e 'display dialog "Failed to install Rosetta 2.\n\nPlease install it manually:\n\nsoftwareupdate --install-rosetta" buttons {"OK"} with title "Dividia Overlay Burner"'
+                exit 1
+            fi
+        fi
+        exit 0
+    fi
+fi
+
+# Get the directory where THIS app bundle is located
+# When run from Automator, we need to find the actual .app bundle location
+# Check if we're being run from inside an app bundle
+if [[ "$0" =~ \.app/Contents/Resources ]]; then
+    # Extract the app bundle path
+    APP_BUNDLE="${0%.app/*}.app"
+else
+    # Fallback: find the app bundle
+    APP_BUNDLE=$(mdfind "kMDItemFSName == 'DividiaOverlayBurner.app'" | head -1)
+fi
+
+# Ask user to choose selection method
+METHOD=$(osascript -e 'tell application "System Events"
+    activate
+    set choice to button returned of (display dialog "How would you like to select items to process?" buttons {"Browse Files", "Browse Folders", "Cancel"} default button "Browse Folders" with title "Dividia Overlay Burner")
+    return choice
+end tell' 2>/dev/null)
+
+# If user cancelled, exit
+if [[ -z "$METHOD" || "$METHOD" == "Cancel" ]]; then
+    exit 0
+fi
+
+SELECTION=""
+
+if [[ "$METHOD" == "Browse Folders" ]]; then
+    # Use folder picker - can select multiple folders
+    SELECTION=$(osascript -e 'tell application "System Events"
+        activate
+        set folderList to choose folder with prompt "Select folder(s) to process:" with multiple selections allowed
+        set folderPaths to {}
+        repeat with aFolder in folderList
+            set end of folderPaths to POSIX path of aFolder
+        end repeat
+        set AppleScript'"'"'s text item delimiters to ","
+        set pathString to folderPaths as text
+        set AppleScript'"'"'s text item delimiters to ""
+        return pathString
+    end tell' 2>/dev/null)
+else
+    # Use file picker - can select multiple files (only show .mp4 files)
+    SELECTION=$(osascript -e 'tell application "System Events"
+        activate
+        set fileList to choose file with prompt "Select video file(s) to process:" of type {"public.mpeg-4", "com.apple.m4v-video", "public.mpeg-4-video"} with multiple selections allowed with invisibles
+        set filePaths to {}
+        repeat with aFile in fileList
+            set end of filePaths to POSIX path of aFile
+        end repeat
+        set AppleScript'"'"'s text item delimiters to ","
+        set pathString to filePaths as text
+        set AppleScript'"'"'s text item delimiters to ""
+        return pathString
+    end tell' 2>/dev/null)
+fi
+
+# If user cancelled, exit
+if [[ -z "$SELECTION" ]]; then
+    osascript -e 'display dialog "No files or folders selected. Exiting." buttons {"OK"} with title "Dividia Overlay Burner"'
+    exit 0
+fi
+
+# Parse the selection into an array
+IFS=',' read -A SELECTED_ITEMS <<< "$SELECTION"
+
+# Validate that all items are from the same directory
+declare -a PARENT_DIRS_ARRAY
+for item in "${SELECTED_ITEMS[@]}"; do
+    item=$(echo "$item" | xargs) # trim whitespace
+    if [[ -d "$item" ]]; then
+        # It's a folder - use the folder itself
+        PARENT_DIRS_ARRAY+=("$item")
+    else
+        # It's a file - use its parent directory
+        parent=$(dirname "$item")
+        PARENT_DIRS_ARRAY+=("$parent")
+    fi
+done
+
+# Get unique directories
+UNIQUE_DIRS=($(printf '%s\n' "${PARENT_DIRS_ARRAY[@]}" | sort -u))
+NUM_DIRS=${#UNIQUE_DIRS[@]}
+
+if [[ $NUM_DIRS -gt 1 ]]; then
+    # Multiple locations - show error
+    osascript -e 'display dialog "Error: All selected files must be from the same directory." buttons {"OK"} with title "Dividia Overlay Burner"'
+    exit 1
+fi
+
+# Set the working directory
+VIDEO_DIR="${UNIQUE_DIRS[1]}"
+
+# The PyInstaller executable is bundled inside this .app at Contents/Resources/
+EXEC_PATH="$APP_BUNDLE/Contents/Resources/DividiaOverlayBurner"
+
+# Debug logging
+echo "=== Overlay Burner Debug ===" > /tmp/overlay_debug.txt
+echo "Script: $0" >> /tmp/overlay_debug.txt
+echo "App bundle: $APP_BUNDLE" >> /tmp/overlay_debug.txt
+echo "Selection: $SELECTION" >> /tmp/overlay_debug.txt
+echo "Video folder: $VIDEO_DIR" >> /tmp/overlay_debug.txt
+echo "Executable path: $EXEC_PATH" >> /tmp/overlay_debug.txt
+echo "Checking executable:" >> /tmp/overlay_debug.txt
+ls -la "$EXEC_PATH" >> /tmp/overlay_debug.txt 2>&1
+
+if [[ -f "$EXEC_PATH" && -x "$EXEC_PATH" ]]; then
+    echo "Running overlay burner..." >> /tmp/overlay_debug.txt
+    cd "$VIDEO_DIR" || exit 1
+    
+    # Pass the selection as argument
+    "$EXEC_PATH" "$SELECTION" 2>&1 | tee -a /tmp/overlay_debug.txt
+    
+    # Success
+    osascript -e 'display notification "All videos processed!" with title "Dividia Overlay Burner"'
+    osascript -e 'display dialog "All done! Check for _overlay.mp4 files." buttons {"OK"} with title "Dividia Overlay Burner"'
+else
+    echo "ERROR: Executable not found at $EXEC_PATH" >> /tmp/overlay_debug.txt
+    ls -la "$APP_BUNDLE/Contents/Resources/" >> /tmp/overlay_debug.txt 2>&1
+    osascript -e 'display dialog "ERROR: DividiaOverlayBurner executable missing!\n\nDebug: /tmp/overlay_debug.txt" buttons {"OK"} with title "Dividia Overlay Burner"'
+    exit 1
+fi
