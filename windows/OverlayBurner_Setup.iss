@@ -1,18 +1,24 @@
 ; OverlayBurner Inno Setup Installer Script
 ; This script creates a professional Windows installer for OverlayBurner
 ; 
+; PREREQUISITES:
+; - Inno Setup 6.x must be installed (download from https://jrsoftware.org/isinfo.php)
+; - DividiaOverlayBurner.exe must be built first (run rebuild.bat)
+;
 ; INSTRUCTIONS:
-; 1. Download and install Inno Setup from: https://jrsoftware.org/isinfo.php
-; 2. Build OverlayBurner.exe using rebuild.bat (ensures ffmpeg is bundled)
-; 3. Right-click this file and select "Compile" (or open in Inno Setup and press F9)
-; 4. The installer will be created in: windows\Output\OverlayBurner_Setup.exe
-; 5. Distribute that single .exe file to users!
+; 1. Ensure rebuild.bat has been run successfully (creates DividiaOverlayBurner.exe with bundled ffmpeg)
+; 2. Right-click this file and select "Compile" (or open in Inno Setup and press F9)
+; 3. The installer will be created in: windows\Output\DividiaOverlayBurner_Setup.exe
+; 4. Distribute that single installer .exe file to users!
+;
+; NOTE: The Inno Setup installer itself is NOT included in this repository.
+;       Download it fresh from the official website above.
 
-#define MyAppName "DividiaOverlayBurner"
+#define MyAppName "Dividia Overlay Burner"
 #define MyAppVersion "1.0"
 #define MyAppPublisher "Dividia"
 #define MyAppURL "https://yourwebsite.com"
-#define MyAppExeName "DividiaOverlayBurner.bat"
+#define MyAppExeName "DividiaOverlayBurner.vbs"
 
 [Setup]
 ; Basic app information
@@ -42,8 +48,8 @@ ArchitecturesInstallIn64BitMode=x64compatible
 
 ; Installer UI settings
 WizardStyle=modern
-SetupIconFile=..\overlayburner.png
-UninstallDisplayIcon={app}\{#MyAppExeName}
+SetupIconFile=..\overlayburner.ico
+UninstallDisplayIcon={app}\overlayburner.ico
 
 ; License and info files (optional - uncomment if you have these)
 ;LicenseFile=LICENSE.txt
@@ -60,25 +66,30 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-; Main application files
-Source: "DividiaOverlayBurner.bat"; DestDir: "{app}"; Flags: ignoreversion
-Source: "DividiaOverlayBurner.exe"; DestDir: "{app}"; Flags: ignoreversion
+; Main application files from common/dist (where rebuild.bat creates the exe)
+Source: "..\common\dist\DividiaOverlayBurner.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "DividiaOverlayBurner.vbs"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\overlayburner.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\overlayburner.png"; DestDir: "{app}"; Flags: ignoreversion
 Source: "README.md"; DestDir: "{app}"; Flags: ignoreversion isreadme
 
-; NOTE: Don't include ffmpeg.exe separately - it's bundled inside OverlayBurner.exe
+; Optional: include batch file as alternative launcher
+Source: "DividiaOverlayBurner.bat"; DestDir: "{app}"; Flags: ignoreversion
+
+; NOTE: Don't include ffmpeg.exe separately - it's bundled inside DividiaOverlayBurner.exe
 
 [Icons]
 ; Start Menu shortcut
-Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Comment: "Process security camera videos with metadata overlay"
+Name: "{group}\{#MyAppName}"; Filename: "{sys}\wscript.exe"; Parameters: """{app}\{#MyAppExeName}"""; IconFilename: "{app}\overlayburner.ico"; Comment: "Process security camera videos with metadata overlay"
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
 Name: "{group}\README"; Filename: "{app}\README.md"
 
 ; Desktop shortcut (if user selected it)
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon; Comment: "Process security camera videos"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{sys}\wscript.exe"; Parameters: """{app}\{#MyAppExeName}"""; IconFilename: "{app}\overlayburner.ico"; Tasks: desktopicon; Comment: "Process security camera videos"
 
 [Run]
 ; Option to launch app after installation
-Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
+Filename: "{sys}\wscript.exe"; Parameters: """{app}\{#MyAppExeName}"""; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
 [Code]
 // Custom code to check for requirements or display messages

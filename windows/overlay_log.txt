@@ -1,0 +1,317 @@
+[2025-11-18 10:40:24] === Overlay Burner Started ===
+[2025-11-18 10:40:24] Folder: C:\Users\musta\OneDrive\Desktop\client_overlay\windows
+[2025-11-18 10:40:24] Processing 0 selected video(s)
+[2025-11-18 10:40:24] No videos: No .mp4 files to process
+[2025-11-18 10:43:23] === Overlay Burner Started ===
+[2025-11-18 10:43:23] Folder: C:\Users\musta\OneDrive\Desktop\client_overlay\windows
+[2025-11-18 10:43:23] Found 0 video(s) in folder
+[2025-11-18 10:43:23] No videos: No .mp4 files to process
+[2025-11-18 10:45:11] === Overlay Burner Started ===
+[2025-11-18 10:45:11] Folder: C:\Users\musta\OneDrive\Desktop\client_overlay\windows
+[2025-11-18 10:45:11] Processing 0 selected video(s)
+[2025-11-18 10:45:11] No videos: No .mp4 files to process
+[2025-11-18 10:50:57] === Overlay Burner Started ===
+[2025-11-18 10:50:57] Arguments received: ['C:\\Users\\musta\\OneDrive\\Desktop\\client_overlay\\windows\\DividiaOverlayBurner.exe', 'C:\\Users\\musta\\OneDrive\\Desktop\\20251118103919\\video']
+[2025-11-18 10:50:57] Number of arguments: 2
+[2025-11-18 10:50:57] Folder: C:\Users\musta\OneDrive\Desktop\client_overlay\windows
+[2025-11-18 10:50:57] Found 10 video(s) in folder: C:\Users\musta\OneDrive\Desktop\20251118103919\video
+[2025-11-18 10:50:57] Processing 10 selected video(s)
+[2025-11-18 10:50:57] Total videos to process: 10
+[2025-11-18 10:51:06] === Overlay Burner Started ===
+[2025-11-18 10:51:06] Arguments received: ['C:\\Users\\musta\\OneDrive\\Desktop\\client_overlay\\windows\\DividiaOverlayBurner.exe', 'C:\\Users\\musta\\OneDrive\\Desktop\\20251118103919\\video']
+[2025-11-18 10:51:06] Number of arguments: 2
+[2025-11-18 10:51:06] Folder: C:\Users\musta\OneDrive\Desktop\client_overlay\windows
+[2025-11-18 10:51:06] Found 10 video(s) in folder: C:\Users\musta\OneDrive\Desktop\20251118103919\video
+[2025-11-18 10:51:06] Processing 10 selected video(s)
+[2025-11-18 10:51:06] Total videos to process: 10
+[2025-11-18 10:53:25] === Overlay Burner Started ===
+[2025-11-18 10:53:25] Arguments received: ['C:\\Users\\musta\\OneDrive\\Desktop\\client_overlay\\windows\\DividiaOverlayBurner.exe']
+[2025-11-18 10:53:25] Number of arguments: 1
+[2025-11-18 10:53:25] Folder: C:\Users\musta\OneDrive\Desktop\client_overlay\windows
+[2025-11-18 10:53:25] Found 0 video(s) in folder
+[2025-11-18 10:53:25] No videos: No .mp4 files to process
+[2025-11-18 10:54:51] === Overlay Burner Started ===
+[2025-11-18 11:00:30] === Overlay Burner Started ===
+[2025-11-18 11:06:36] === Overlay Burner Started ===
+[2025-11-18 11:08:40] === Overlay Burner Started ===
+[2025-11-18 11:13:45] === Overlay Burner Started ===
+[2025-11-18 11:13:45] Arguments received: ['C:\\Users\\musta\\OneDrive\\Desktop\\client_overlay\\windows\\DividiaOverlayBurner.exe', '∩╗┐C:\\Users\\musta\\OneDrive\\Desktop\\20251118103919\\video']
+[2025-11-18 11:13:45] Number of arguments: 2
+[2025-11-18 11:13:45] Folder: C:\Users\musta\OneDrive\Desktop\client_overlay\windows
+[2025-11-18 11:13:45] Processing 0 selected video(s)
+[2025-11-18 11:13:45] No videos: No .mp4 files to process
+[2025-11-18 11:17:57] === Overlay Burner Started ===
+[2025-11-18 11:17:57] Arguments received: ['C:\\Users\\musta\\OneDrive\\Desktop\\client_overlay\\windows\\DividiaOverlayBurner.exe', 'C:\\Users\\musta\\OneDrive\\Desktop\\20251118103919\\video']
+[2025-11-18 11:17:57] Number of arguments: 2
+[2025-11-18 11:17:57] Folder: C:\Users\musta\OneDrive\Desktop\client_overlay\windows
+[2025-11-18 11:17:57] Found 10 video(s) in folder: C:\Users\musta\OneDrive\Desktop\20251118103919\video
+[2025-11-18 11:17:57] Processing 10 selected video(s)
+[2025-11-18 11:17:57] Total videos to process: 10
+[2025-11-18 11:17:58] [1/10] Processing: cam4-20251118074411.mp4
+[2025-11-18 11:17:58] Processing: cam4-20251118074411.mp4
+[2025-11-18 11:17:58] Starting SEI extraction with debug logging...
+[2025-11-18 11:17:58] Using ffmpeg: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe
+[2025-11-18 11:18:02]   SEI #1: size=104, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20200c80029781c6946726f6e7420446f6f720000
+[2025-11-18 11:18:02]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:02]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:02]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:02]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:02]   [OK] Parsing: name='Front Door', seconds_today=30761
+[2025-11-18 11:18:02]   [SUCCESS] cam='Front Door', time=08:32:41
+[2025-11-18 11:18:02]   First metadata found: cam='Front Door', time=08:32:41
+[2025-11-18 11:18:02]   SEI #1: size=104, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20201c8022e781c6946726f6e7420446f6f720000
+[2025-11-18 11:18:02]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:02]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:02]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:02]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:02]   [OK] Parsing: name='Front Door', seconds_today=30766
+[2025-11-18 11:18:02]   [SUCCESS] cam='Front Door', time=08:32:46
+[2025-11-18 11:18:02] Processed 6 chunk(s) of video data
+[2025-11-18 11:18:02] Camera: Front Door, Date: 11-18-2025, Start time: 08:32:41
+[2025-11-18 11:18:02] Using font: C:/Windows/Fonts/arial.ttf
+[2025-11-18 11:18:02] Output directory: C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay
+[2025-11-18 11:18:02] FFmpeg command: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe -i C:\Users\musta\OneDrive\Desktop\20251118103919\video\cam4-20251118074411.mp4 -vf drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Front Door',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((30761+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((30761+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(30761+t)\,60)\:d\:2}' -c:v libx264 -preset ultrafast -crf 23 -c:a copy -strict -2 -y C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay\cam4-20251118074411_overlay.mp4
+[2025-11-18 11:18:02] Video filter: drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Front Door',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((30761+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((30761+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(30761+t)\,60)\:d\:2}'
+[2025-11-18 11:18:09] Created: cam4-20251118074411_overlay.mp4 in with_overlay/ (took 10.8s)
+[2025-11-18 11:18:09] Progress: 1/10 complete. Estimated time remaining: 1m 37s
+[2025-11-18 11:18:09] [2/10] Processing: cam4-20251118075402.mp4
+[2025-11-18 11:18:09] Processing: cam4-20251118075402.mp4
+[2025-11-18 11:18:09] Starting SEI extraction with debug logging...
+[2025-11-18 11:18:09] Using ffmpeg: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe
+[2025-11-18 11:18:09]   SEI #1: size=104, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20200c800797a1c6946726f6e7420446f6f720000
+[2025-11-18 11:18:09]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:09]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:09]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:09]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:09]   [OK] Parsing: name='Front Door', seconds_today=31353
+[2025-11-18 11:18:09]   [SUCCESS] cam='Front Door', time=08:42:33
+[2025-11-18 11:18:09]   First metadata found: cam='Front Door', time=08:42:33
+[2025-11-18 11:18:09]   SEI #1: size=104, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20201c8057d7a1c6946726f6e7420446f6f720000
+[2025-11-18 11:18:09]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:09]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:09]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:09]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:09]   [OK] Parsing: name='Front Door', seconds_today=31357
+[2025-11-18 11:18:09]   [SUCCESS] cam='Front Door', time=08:42:37
+[2025-11-18 11:18:09] Processed 8 chunk(s) of video data
+[2025-11-18 11:18:09] Camera: Front Door, Date: 11-18-2025, Start time: 08:42:33
+[2025-11-18 11:18:09] Using font: C:/Windows/Fonts/arial.ttf
+[2025-11-18 11:18:09] Output directory: C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay
+[2025-11-18 11:18:09] FFmpeg command: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe -i C:\Users\musta\OneDrive\Desktop\20251118103919\video\cam4-20251118075402.mp4 -vf drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Front Door',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((31353+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((31353+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(31353+t)\,60)\:d\:2}' -c:v libx264 -preset ultrafast -crf 23 -c:a copy -strict -2 -y C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay\cam4-20251118075402_overlay.mp4
+[2025-11-18 11:18:09] Video filter: drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Front Door',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((31353+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((31353+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(31353+t)\,60)\:d\:2}'
+[2025-11-18 11:18:12] Created: cam4-20251118075402_overlay.mp4 in with_overlay/ (took 2.9s)
+[2025-11-18 11:18:12] Progress: 2/10 complete. Estimated time remaining: 0m 54s
+[2025-11-18 11:18:12] [3/10] Processing: cam4-20251118075523.mp4
+[2025-11-18 11:18:12] Processing: cam4-20251118075523.mp4
+[2025-11-18 11:18:12] Starting SEI extraction with debug logging...
+[2025-11-18 11:18:12] Using ffmpeg: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe
+[2025-11-18 11:18:12]   SEI #1: size=104, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20200c800c97a1c6946726f6e7420446f6f720000
+[2025-11-18 11:18:12]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:12]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:12]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:12]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:12]   [OK] Parsing: name='Front Door', seconds_today=31433
+[2025-11-18 11:18:12]   [SUCCESS] cam='Front Door', time=08:43:53
+[2025-11-18 11:18:12]   First metadata found: cam='Front Door', time=08:43:53
+[2025-11-18 11:18:12]   SEI #1: size=104, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20201c802cd7a1c6946726f6e7420446f6f720000
+[2025-11-18 11:18:12]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:12]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:12]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:12]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:12]   [OK] Parsing: name='Front Door', seconds_today=31437
+[2025-11-18 11:18:12]   [SUCCESS] cam='Front Door', time=08:43:57
+[2025-11-18 11:18:12] Processed 6 chunk(s) of video data
+[2025-11-18 11:18:12] Camera: Front Door, Date: 11-18-2025, Start time: 08:43:53
+[2025-11-18 11:18:12] Using font: C:/Windows/Fonts/arial.ttf
+[2025-11-18 11:18:12] Output directory: C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay
+[2025-11-18 11:18:12] FFmpeg command: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe -i C:\Users\musta\OneDrive\Desktop\20251118103919\video\cam4-20251118075523.mp4 -vf drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Front Door',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((31433+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((31433+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(31433+t)\,60)\:d\:2}' -c:v libx264 -preset ultrafast -crf 23 -c:a copy -strict -2 -y C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay\cam4-20251118075523_overlay.mp4
+[2025-11-18 11:18:12] Video filter: drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Front Door',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((31433+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((31433+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(31433+t)\,60)\:d\:2}'
+[2025-11-18 11:18:15] Created: cam4-20251118075523_overlay.mp4 in with_overlay/ (took 3.3s)
+[2025-11-18 11:18:15] Progress: 3/10 complete. Estimated time remaining: 0m 39s
+[2025-11-18 11:18:15] [4/10] Processing: cam4-20251118075617.mp4
+[2025-11-18 11:18:15] Processing: cam4-20251118075617.mp4
+[2025-11-18 11:18:15] Starting SEI extraction with debug logging...
+[2025-11-18 11:18:15] Using ffmpeg: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe
+[2025-11-18 11:18:15]   SEI #1: size=104, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20200c800017b1c6946726f6e7420446f6f720000
+[2025-11-18 11:18:15]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:15]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:15]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:15]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:15]   [OK] Parsing: name='Front Door', seconds_today=31489
+[2025-11-18 11:18:15]   [SUCCESS] cam='Front Door', time=08:44:49
+[2025-11-18 11:18:15]   First metadata found: cam='Front Door', time=08:44:49
+[2025-11-18 11:18:15]   SEI #1: size=104, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20201c806057b1c6946726f6e7420446f6f720000
+[2025-11-18 11:18:15]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:15]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:15]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:15]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:15]   [OK] Parsing: name='Front Door', seconds_today=31493
+[2025-11-18 11:18:15]   [SUCCESS] cam='Front Door', time=08:44:53
+[2025-11-18 11:18:15] Processed 8 chunk(s) of video data
+[2025-11-18 11:18:15] Camera: Front Door, Date: 11-18-2025, Start time: 08:44:49
+[2025-11-18 11:18:15] Using font: C:/Windows/Fonts/arial.ttf
+[2025-11-18 11:18:15] Output directory: C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay
+[2025-11-18 11:18:15] FFmpeg command: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe -i C:\Users\musta\OneDrive\Desktop\20251118103919\video\cam4-20251118075617.mp4 -vf drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Front Door',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((31489+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((31489+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(31489+t)\,60)\:d\:2}' -c:v libx264 -preset ultrafast -crf 23 -c:a copy -strict -2 -y C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay\cam4-20251118075617_overlay.mp4
+[2025-11-18 11:18:15] Video filter: drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Front Door',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((31489+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((31489+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(31489+t)\,60)\:d\:2}'
+[2025-11-18 11:18:19] Created: cam4-20251118075617_overlay.mp4 in with_overlay/ (took 3.9s)
+[2025-11-18 11:18:19] Progress: 4/10 complete. Estimated time remaining: 0m 31s
+[2025-11-18 11:18:19] [5/10] Processing: cam5-20251118074426.mp4
+[2025-11-18 11:18:19] Processing: cam5-20251118074426.mp4
+[2025-11-18 11:18:19] Starting SEI extraction with debug logging...
+[2025-11-18 11:18:19] Using ffmpeg: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe
+[2025-11-18 11:18:19]   SEI #1: size=194, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20200c8003a781c6943756269636c657300000000
+[2025-11-18 11:18:19]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:19]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:19]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:19]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:19]   [OK] Parsing: name='Cubicles', seconds_today=30778
+[2025-11-18 11:18:19]   [SUCCESS] cam='Cubicles', time=08:32:58
+[2025-11-18 11:18:19]   First metadata found: cam='Cubicles', time=08:32:58
+[2025-11-18 11:18:19]   SEI #1: size=194, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20201c80b46781c6943756269636c657300000000
+[2025-11-18 11:18:19]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:19]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:19]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:19]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:19]   [OK] Parsing: name='Cubicles', seconds_today=30790
+[2025-11-18 11:18:19]   [SUCCESS] cam='Cubicles', time=08:33:10
+[2025-11-18 11:18:19] Processed 3 chunk(s) of video data
+[2025-11-18 11:18:19] Camera: Cubicles, Date: 11-18-2025, Start time: 08:32:58
+[2025-11-18 11:18:19] Using font: C:/Windows/Fonts/arial.ttf
+[2025-11-18 11:18:19] Output directory: C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay
+[2025-11-18 11:18:19] FFmpeg command: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe -i C:\Users\musta\OneDrive\Desktop\20251118103919\video\cam5-20251118074426.mp4 -vf drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Cubicles',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((30778+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((30778+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(30778+t)\,60)\:d\:2}' -c:v libx264 -preset ultrafast -crf 23 -c:a copy -strict -2 -y C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay\cam5-20251118074426_overlay.mp4
+[2025-11-18 11:18:19] Video filter: drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Cubicles',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((30778+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((30778+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(30778+t)\,60)\:d\:2}'
+[2025-11-18 11:18:20] Created: cam5-20251118074426_overlay.mp4 in with_overlay/ (took 1.4s)
+[2025-11-18 11:18:20] Progress: 5/10 complete. Estimated time remaining: 0m 22s
+[2025-11-18 11:18:20] [6/10] Processing: cam5-20251118075408.mp4
+[2025-11-18 11:18:20] Processing: cam5-20251118075408.mp4
+[2025-11-18 11:18:20] Starting SEI extraction with debug logging...
+[2025-11-18 11:18:20] Using ffmpeg: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe
+[2025-11-18 11:18:20]   SEI #1: size=194, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20201c800807a1c6943756269636c657300000000
+[2025-11-18 11:18:20]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:20]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:20]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:20]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:20]   [OK] Parsing: name='Cubicles', seconds_today=31360
+[2025-11-18 11:18:20]   [SUCCESS] cam='Cubicles', time=08:42:40
+[2025-11-18 11:18:20]   First metadata found: cam='Cubicles', time=08:42:40
+[2025-11-18 11:18:20]   SEI #1: size=194, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20201c8008a7a1c6943756269636c657300000000
+[2025-11-18 11:18:20]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:20]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:20]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:20]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:20]   [OK] Parsing: name='Cubicles', seconds_today=31370
+[2025-11-18 11:18:20]   [SUCCESS] cam='Cubicles', time=08:42:50
+[2025-11-18 11:18:20] Processed 5 chunk(s) of video data
+[2025-11-18 11:18:20] Camera: Cubicles, Date: 11-18-2025, Start time: 08:42:40
+[2025-11-18 11:18:20] Using font: C:/Windows/Fonts/arial.ttf
+[2025-11-18 11:18:20] Output directory: C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay
+[2025-11-18 11:18:20] FFmpeg command: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe -i C:\Users\musta\OneDrive\Desktop\20251118103919\video\cam5-20251118075408.mp4 -vf drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Cubicles',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((31360+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((31360+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(31360+t)\,60)\:d\:2}' -c:v libx264 -preset ultrafast -crf 23 -c:a copy -strict -2 -y C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay\cam5-20251118075408_overlay.mp4
+[2025-11-18 11:18:20] Video filter: drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Cubicles',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((31360+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((31360+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(31360+t)\,60)\:d\:2}'
+[2025-11-18 11:18:22] Created: cam5-20251118075408_overlay.mp4 in with_overlay/ (took 1.7s)
+[2025-11-18 11:18:22] Progress: 6/10 complete. Estimated time remaining: 0m 16s
+[2025-11-18 11:18:22] [7/10] Processing: cam5-20251118075515.mp4
+[2025-11-18 11:18:22] Processing: cam5-20251118075515.mp4
+[2025-11-18 11:18:22] Starting SEI extraction with debug logging...
+[2025-11-18 11:18:22] Using ffmpeg: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe
+[2025-11-18 11:18:22]   SEI #1: size=194, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20200c800c27a1c6943756269636c657300000000
+[2025-11-18 11:18:22]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:22]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:22]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:22]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:22]   [OK] Parsing: name='Cubicles', seconds_today=31426
+[2025-11-18 11:18:22]   [SUCCESS] cam='Cubicles', time=08:43:46
+[2025-11-18 11:18:22]   First metadata found: cam='Cubicles', time=08:43:46
+[2025-11-18 11:18:22]   SEI #1: size=194, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20201c800cd7a1c6943756269636c657300000000
+[2025-11-18 11:18:22]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:22]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:22]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:22]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:22]   [OK] Parsing: name='Cubicles', seconds_today=31437
+[2025-11-18 11:18:22]   [SUCCESS] cam='Cubicles', time=08:43:57
+[2025-11-18 11:18:22] Processed 4 chunk(s) of video data
+[2025-11-18 11:18:22] Camera: Cubicles, Date: 11-18-2025, Start time: 08:43:46
+[2025-11-18 11:18:22] Using font: C:/Windows/Fonts/arial.ttf
+[2025-11-18 11:18:22] Output directory: C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay
+[2025-11-18 11:18:22] FFmpeg command: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe -i C:\Users\musta\OneDrive\Desktop\20251118103919\video\cam5-20251118075515.mp4 -vf drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Cubicles',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((31426+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((31426+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(31426+t)\,60)\:d\:2}' -c:v libx264 -preset ultrafast -crf 23 -c:a copy -strict -2 -y C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay\cam5-20251118075515_overlay.mp4
+[2025-11-18 11:18:22] Video filter: drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Cubicles',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((31426+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((31426+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(31426+t)\,60)\:d\:2}'
+[2025-11-18 11:18:23] Created: cam5-20251118075515_overlay.mp4 in with_overlay/ (took 1.0s)
+[2025-11-18 11:18:23] Progress: 7/10 complete. Estimated time remaining: 0m 10s
+[2025-11-18 11:18:23] [8/10] Processing: cam5-20251118075623.mp4
+[2025-11-18 11:18:23] Processing: cam5-20251118075623.mp4
+[2025-11-18 11:18:23] Starting SEI extraction with debug logging...
+[2025-11-18 11:18:23] Using ffmpeg: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe
+[2025-11-18 11:18:23]   SEI #1: size=194, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20201c800077b1c6943756269636c657300000000
+[2025-11-18 11:18:23]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:23]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:23]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:23]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:23]   [OK] Parsing: name='Cubicles', seconds_today=31495
+[2025-11-18 11:18:23]   [SUCCESS] cam='Cubicles', time=08:44:55
+[2025-11-18 11:18:23]   First metadata found: cam='Cubicles', time=08:44:55
+[2025-11-18 11:18:23]   SEI #1: size=194, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20201c800127b1c6943756269636c657300000000
+[2025-11-18 11:18:23]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:23]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:23]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:23]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:23]   [OK] Parsing: name='Cubicles', seconds_today=31506
+[2025-11-18 11:18:23]   [SUCCESS] cam='Cubicles', time=08:45:06
+[2025-11-18 11:18:23] Processed 2 chunk(s) of video data
+[2025-11-18 11:18:23] Camera: Cubicles, Date: 11-18-2025, Start time: 08:44:55
+[2025-11-18 11:18:23] Using font: C:/Windows/Fonts/arial.ttf
+[2025-11-18 11:18:23] Output directory: C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay
+[2025-11-18 11:18:23] FFmpeg command: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe -i C:\Users\musta\OneDrive\Desktop\20251118103919\video\cam5-20251118075623.mp4 -vf drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Cubicles',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((31495+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((31495+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(31495+t)\,60)\:d\:2}' -c:v libx264 -preset ultrafast -crf 23 -c:a copy -strict -2 -y C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay\cam5-20251118075623_overlay.mp4
+[2025-11-18 11:18:23] Video filter: drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Cubicles',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((31495+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((31495+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(31495+t)\,60)\:d\:2}'
+[2025-11-18 11:18:24] Created: cam5-20251118075623_overlay.mp4 in with_overlay/ (took 0.9s)
+[2025-11-18 11:18:24] Progress: 8/10 complete. Estimated time remaining: 0m 6s
+[2025-11-18 11:18:24] [9/10] Processing: cam5-20251118075645.mp4
+[2025-11-18 11:18:24] Processing: cam5-20251118075645.mp4
+[2025-11-18 11:18:24] Starting SEI extraction with debug logging...
+[2025-11-18 11:18:24] Using ffmpeg: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe
+[2025-11-18 11:18:24]   SEI #1: size=194, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20200c8001c7b1c6943756269636c657300000000
+[2025-11-18 11:18:24]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:24]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:24]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:24]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:24]   [OK] Parsing: name='Cubicles', seconds_today=31516
+[2025-11-18 11:18:24]   [SUCCESS] cam='Cubicles', time=08:45:16
+[2025-11-18 11:18:24]   First metadata found: cam='Cubicles', time=08:45:16
+[2025-11-18 11:18:24]   SEI #1: size=194, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20201c802257b1c6943756269636c657300000000
+[2025-11-18 11:18:24]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:24]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:24]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:24]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:24]   [OK] Parsing: name='Cubicles', seconds_today=31525
+[2025-11-18 11:18:24]   [SUCCESS] cam='Cubicles', time=08:45:25
+[2025-11-18 11:18:24] Processed 16 chunk(s) of video data
+[2025-11-18 11:18:24] Camera: Cubicles, Date: 11-18-2025, Start time: 08:45:16
+[2025-11-18 11:18:24] Using font: C:/Windows/Fonts/arial.ttf
+[2025-11-18 11:18:24] Output directory: C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay
+[2025-11-18 11:18:24] FFmpeg command: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe -i C:\Users\musta\OneDrive\Desktop\20251118103919\video\cam5-20251118075645.mp4 -vf drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Cubicles',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((31516+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((31516+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(31516+t)\,60)\:d\:2}' -c:v libx264 -preset ultrafast -crf 23 -c:a copy -strict -2 -y C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay\cam5-20251118075645_overlay.mp4
+[2025-11-18 11:18:24] Video filter: drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Cubicles',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((31516+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((31516+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(31516+t)\,60)\:d\:2}'
+[2025-11-18 11:18:27] Created: cam5-20251118075645_overlay.mp4 in with_overlay/ (took 3.0s)
+[2025-11-18 11:18:27] Progress: 9/10 complete. Estimated time remaining: 0m 3s
+[2025-11-18 11:18:27] [10/10] Processing: cam5-20251118075955.mp4
+[2025-11-18 11:18:27] Processing: cam5-20251118075955.mp4
+[2025-11-18 11:18:27] Starting SEI extraction with debug logging...
+[2025-11-18 11:18:27] Using ffmpeg: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe
+[2025-11-18 11:18:27]   SEI #1: size=194, first 40 bytes: aaffaaffaaffaaffaaffaaffaaffaaffaaaaabb20201c800db7b1c6943756269636c657300000000
+[2025-11-18 11:18:27]     Check pattern: payload[0:16]==b'\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff\\xaa\\xff': False
+[2025-11-18 11:18:27]     Check pattern: payload[16:18]==b'\\xaa\\xaa': False
+[2025-11-18 11:18:27]     Check pattern: payload[18]==0xab: True
+[2025-11-18 11:18:27]     Check pattern: payload[19]==0xb2: True
+[2025-11-18 11:18:27]   [OK] Parsing: name='Cubicles', seconds_today=31707
+[2025-11-18 11:18:27]   [SUCCESS] cam='Cubicles', time=08:48:27
+[2025-11-18 11:18:27]   First metadata found: cam='Cubicles', time=08:48:27
+[2025-11-18 11:18:27] Processed 1 chunk(s) of video data
+[2025-11-18 11:18:27] Camera: Cubicles, Date: 11-18-2025, Start time: 08:48:27
+[2025-11-18 11:18:27] Using font: C:/Windows/Fonts/arial.ttf
+[2025-11-18 11:18:27] Output directory: C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay
+[2025-11-18 11:18:27] FFmpeg command: C:\Users\musta\AppData\Local\Temp\_MEI138722\ffmpeg.exe -i C:\Users\musta\OneDrive\Desktop\20251118103919\video\cam5-20251118075955.mp4 -vf drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Cubicles',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((31707+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((31707+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(31707+t)\,60)\:d\:2}' -c:v libx264 -preset ultrafast -crf 23 -c:a copy -strict -2 -y C:\Users\musta\OneDrive\Desktop\20251118103919\video\with_overlay\cam5-20251118075955_overlay.mp4
+[2025-11-18 11:18:27] Video filter: drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-180:text='Cubicles',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-120:text='11-18-2025',drawtext=fontfile=C:/Windows/Fonts/arial.ttf:fontsize=48:fontcolor=white:borderw=4:bordercolor=black:x=20:y=main_h-60:text='%{eif\:mod(trunc((31707+t)/3600)\,24)\:d\:2}\:%{eif\:mod(trunc((31707+t)/60)\,60)\:d\:2}\:%{eif\:mod(trunc(31707+t)\,60)\:d\:2}'
+[2025-11-18 11:18:27] Created: cam5-20251118075955_overlay.mp4 in with_overlay/ (took 0.4s)
+[2025-11-18 11:18:28] [  OK  ] Success: 10  [ SKIP ] Skipped: 0  [ FAIL ] Failed: 0
+
+Total time: 0m 29s
+[2025-11-18 11:18:28] Done: [  OK  ] Success: 10  [ SKIP ] Skipped: 0  [ FAIL ] Failed: 0
+
+Total time: 0m 29s

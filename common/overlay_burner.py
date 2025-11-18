@@ -6,6 +6,12 @@ import os
 import platform
 from pathlib import Path
 
+# Platform-specific imports
+if platform.system() == 'Windows':
+    import tkinter as tk
+    from tkinter import ttk
+    import threading
+
 # Determine ffmpeg path based on platform and execution mode
 if getattr(sys, 'frozen', False):
     # Running as PyInstaller bundle
@@ -28,9 +34,152 @@ else:
 
 LOG_FILE = Path(sys.executable).with_name("overlay_log.txt") if getattr(sys, 'frozen', False) else Path("overlay_log.txt")
 
+# Windows progress window class
+class ProgressWindow:
+    def __init__(self, total_files=0):
+        self.total_files = total_files
+        self.should_stop = False
+        self.processing_times = []
+        self.root = tk.Tk()
+        self.root.title("Dividia Overlay Burner")
+        self.root.geometry("500x350")
+        self.root.resizable(False, False)
+        
+        # Set custom icon if available
+        try:
+            icon_path = Path(__file__).parent.parent / "overlayburner.png"
+            if icon_path.exists():
+                self.root.iconphoto(True, tk.PhotoImage(file=str(icon_path)))
+        except:
+            pass
+        
+        # Force window to top and make it stay on top
+        self.root.attributes('-topmost', True)
+        self.root.lift()
+        self.root.focus_force()
+        
+        # Center window
+        self.root.update_idletasks()
+        x = (self.root.winfo_screenwidth() // 2) - (250)
+        y = (self.root.winfo_screenheight() // 2) - (175)
+        self.root.geometry(f"500x350+{x}+{y}")
+        
+        # Keep window on top continuously
+        self.root.after(100, lambda: self.root.attributes('-topmost', True))
+        
+        # Main frame
+        main_frame = ttk.Frame(self.root, padding="20")
+        main_frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
+        
+        # Title
+        title_label = ttk.Label(main_frame, text="Dividia Overlay Burner", font=('Segoe UI', 14, 'bold'))
+        title_label.grid(row=0, column=0, columnspan=2, pady=(0, 15))
+        
+        # Current file label
+        ttk.Label(main_frame, text="Status:").grid(row=1, column=0, sticky=tk.W, pady=5)
+        self.file_label = ttk.Label(main_frame, text="Preparing files...", foreground="blue")
+        self.file_label.grid(row=1, column=1, sticky=tk.W, pady=5)
+        
+        # Progress bar (starts in indeterminate mode)
+        self.progress_var = tk.DoubleVar()
+        self.progress_bar = ttk.Progressbar(main_frame, length=400, mode='indeterminate')
+        self.progress_bar.grid(row=2, column=0, columnspan=2, pady=15)
+        self.progress_bar.start(10)  # Start animation
+        
+        # Status labels
+        self.status_label = ttk.Label(main_frame, text="")
+        self.status_label.grid(row=3, column=0, columnspan=2)
+        
+        self.stats_label = ttk.Label(main_frame, text="", font=('Segoe UI', 10))
+        self.stats_label.grid(row=4, column=0, columnspan=2, pady=10)
+        
+        # Time label
+        self.time_label = ttk.Label(main_frame, text="", font=('Segoe UI', 9), foreground="gray")
+        self.time_label.grid(row=5, column=0, columnspan=2, pady=5)
+        
+        # Close button (hidden initially)
+        self.close_button = ttk.Button(main_frame, text="Close", command=self.close)
+        self.close_button_visible = False
+        
+        # Enable close button during processing - will terminate
+        self.root.protocol("WM_DELETE_WINDOW", self.close_during_processing)
+        self.root.update()
+    
+    def close_during_processing(self):
+        """Handle window close during processing - terminate immediately"""
+        self.should_stop = True
+        import sys
+        sys.exit(0)
+    
+    def start_processing(self, total_files):
+        """Switch from preparing to processing mode"""
+        self.total_files = total_files
+        self.progress_bar.stop()  # Stop indeterminate animation
+        self.progress_bar.config(mode='determinate', variable=self.progress_var)
+        self.progress_var.set(0)
+        self.root.update()
+        
+    def update(self, current_idx, current_file, success, skipped, failed, elapsed_time=None):
+        completed = success + skipped + failed
+        pct = int(completed / self.total_files * 100) if self.total_files > 0 else 0
+        
+        self.file_label.config(text=current_file)
+        self.progress_var.set(pct)
+        self.status_label.config(text=f"{completed} / {self.total_files} ({pct}%)")
+        self.stats_label.config(text=f"✓ {success}  ⊘ {skipped}  ✗ {failed}")
+        
+        # Update time estimate if provided
+        if elapsed_time is not None and len(self.processing_times) > 0:
+            avg_time = sum(self.processing_times) / len(self.processing_times)
+            remaining_files = self.total_files - completed
+            if remaining_files > 0:
+                est_seconds = avg_time * remaining_files
+                est_mins = int(est_seconds / 60)
+                est_secs = int(est_seconds % 60)
+                self.time_label.config(text=f"Estimated time remaining: {est_mins}m {est_secs}s")
+        
+        self.root.update()
+    
+    def add_processing_time(self, elapsed):
+        """Track processing time for estimates"""
+        self.processing_times.append(elapsed)
+    
+    def show_complete(self, success, skipped, failed, total_time=None):
+        """Show completion status and Close button"""
+        self.file_label.config(text="Processing Complete!")
+        total = success + skipped + failed
+        pct = 100 if total > 0 else 0
+        self.progress_var.set(pct)
+        self.status_label.config(text=f"{total} / {self.total_files} (100%)")
+        self.stats_label.config(text=f"✓ {success}  ⊘ {skipped}  ✗ {failed}")
+        
+        # Show total time
+        if total_time is not None:
+            mins = int(total_time / 60)
+            secs = int(total_time % 60)
+            self.time_label.config(text=f"Total time: {mins}m {secs}s")
+        
+        # Show close button and enable window close
+        if not self.close_button_visible:
+            self.close_button.grid(row=6, column=0, columnspan=2, pady=15)
+            self.close_button_visible = True
+            self.root.protocol("WM_DELETE_WINDOW", self.close)  # Enable close button
+        
+        self.root.update()
+        # Keep window open until user clicks Close
+        self.root.mainloop()
+        
+    def close(self):
+        self.root.quit()
+        self.root.destroy()
+
 def log(msg):
     line = f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {msg}"
-    print(line)
+    try:
+        print(line)
+    except UnicodeEncodeError:
+        # Windows console can't handle some Unicode chars, print ASCII version
+        print(line.encode('ascii', 'replace').decode('ascii'))
     try:
         with open(LOG_FILE, "a", encoding="utf-8") as f:
             f.write(line + "\n")
@@ -149,9 +298,16 @@ def process(path, current_num=1, total_num=1, progress_data=None):
     import time
     start_time = time.time()
     
+    # Windows: hide console window completely
+    startupinfo = None
+    if platform.system() == 'Windows':
+        startupinfo = subprocess.STARTUPINFO()
+        startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+        startupinfo.wShowWindow = subprocess.SW_HIDE
+    
     proc = subprocess.Popen(
         [FFMPEG_PATH, "-i", str(path), "-c:v", "copy", "-bsf:v", "h264_mp4toannexb", "-f", "h264", "-"],
-        stdout=subprocess.PIPE, stderr=subprocess.DEVNULL
+        stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, startupinfo=startupinfo
     )
     chunk = b""
     cam = ts_start = None
@@ -193,13 +349,20 @@ def process(path, current_num=1, total_num=1, progress_data=None):
     h, m, s = map(int, ts_start.split(':'))
     start_seconds = h * 3600 + m * 60 + s
 
-    # Try multiple font paths for macOS
-    font_paths = [
-        "/System/Library/Fonts/Supplemental/Arial.ttf",
-        "/System/Library/Fonts/Helvetica.ttc",
-        "/System/Library/Fonts/SFNSText.ttf",
-        "/Library/Fonts/Arial.ttf"
-    ]
+    # Try multiple font paths based on platform
+    if platform.system() == 'Windows':
+        font_paths = [
+            "C:/Windows/Fonts/arial.ttf",
+            "C:/Windows/Fonts/Arial.ttf",
+            "C:/Windows/Fonts/calibri.ttf"
+        ]
+    else:  # macOS
+        font_paths = [
+            "/System/Library/Fonts/Supplemental/Arial.ttf",
+            "/System/Library/Fonts/Helvetica.ttc",
+            "/System/Library/Fonts/SFNSText.ttf",
+            "/Library/Fonts/Arial.ttf"
+        ]
     
     font = None
     for fp in font_paths:
@@ -258,7 +421,15 @@ def process(path, current_num=1, total_num=1, progress_data=None):
     cmd = [FFMPEG_PATH, "-i", str(path), "-vf", vf, "-c:v", "libx264", "-preset", "ultrafast", "-crf", "23", "-c:a", "copy", "-strict", "-2", "-y", str(out)]
     log(f"FFmpeg command: {' '.join(cmd)}")
     log(f"Video filter: {vf}")
-    result = subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+    
+    # Windows: hide console window completely
+    startupinfo = None
+    if platform.system() == 'Windows':
+        startupinfo = subprocess.STARTUPINFO()
+        startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+        startupinfo.wShowWindow = subprocess.SW_HIDE
+    
+    result = subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, startupinfo=startupinfo)
     
     elapsed = time.time() - start_time
     
@@ -277,6 +448,8 @@ def process(path, current_num=1, total_num=1, progress_data=None):
 
 def main():
     log("=== Overlay Burner Started ===")
+    log(f"Arguments received: {sys.argv}")
+    log(f"Number of arguments: {len(sys.argv)}")
     
     # Get the folder where the app/script is located
     if getattr(sys, 'frozen', False):
@@ -299,15 +472,18 @@ def main():
         
         # Process each selected item
         for path_str in selected_paths:
-            path = Path(path_str)
+            path = Path(path_str).resolve()  # Convert to absolute path
             if path.is_dir():
-                # It's a folder - collect all videos recursively
-                folder_videos = [p for p in path.rglob("*.mp4") if "_overlay.mp4" not in p.name.lower()]
+                # It's a folder - collect all videos recursively (resolve to absolute paths)
+                folder_videos = [p.resolve() for p in path.rglob("*.mp4") if "_overlay.mp4" not in p.name.lower()]
                 videos.extend(folder_videos)
                 log(f"Found {len(folder_videos)} video(s) in folder: {path}")
+                # Debug: log the actual paths
+                for v in folder_videos[:2]:  # Log first 2
+                    log(f"  Video path: {v} (parent: {v.parent})")
             elif path.is_file() and path.suffix.lower() == '.mp4' and '_overlay.mp4' not in path.name.lower():
                 # It's a video file
-                videos.append(path)
+                videos.append(path.resolve())
                 log(f"Added file: {path}")
         
         log(f"Processing {len(videos)} selected video(s)")
@@ -338,43 +514,55 @@ def main():
         'skipped_files': []  # Track which files were skipped
     }
     
-    # Create a progress log file
-    progress_log = Path("/tmp/overlay_burner_progress.txt")
-    
-    # Open Terminal window with a script that clears screen and shows progress
-    # The script displays the progress until it sees __EXIT__, then closes the window
-    term_script = subprocess.Popen([
-        "osascript", "-e",
-        f'tell application "Terminal" to do script "clear && while true; do clear; cat {progress_log} 2>/dev/null || echo \\"Starting...\\"; if grep -q __EXIT__ {progress_log} 2>/dev/null; then exit; fi; sleep 0.5; done"',
-        "-e",
-        'tell application "Terminal" to activate'
-    ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    
-    # Get the Terminal window ID so we can close it later
-    time.sleep(1)  # Give Terminal time to open
+    # Create progress window/log based on platform
+    progress_window = None
+    if platform.system() == 'Windows':
+        # Windows: Show GUI immediately in "preparing" state
+        progress_window = ProgressWindow()
+        progress_window.start_processing(len(videos))
+    else:
+        # macOS: Use Terminal window with progress file
+        progress_log = Path("/tmp/overlay_burner_progress.txt")
+        term_script = subprocess.Popen([
+            "osascript", "-e",
+            f'tell application "Terminal" to do script "clear && while true; do clear; cat {progress_log} 2>/dev/null || echo \\"Starting...\\"; if grep -q __EXIT__ {progress_log} 2>/dev/null; then exit; fi; sleep 0.5; done"',
+            "-e",
+            'tell application "Terminal" to activate'
+        ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        time.sleep(1)  # Give Terminal time to open
     
     for idx, v in enumerate(videos, 1):
-        # Update progress log file
-        completed = progress_data['success'] + progress_data['skipped'] + progress_data['failed']
-        pct = int(completed / len(videos) * 100) if completed > 0 else 0
+        # Check if user closed window
+        if platform.system() == 'Windows' and progress_window and progress_window.should_stop:
+            log("Processing cancelled by user")
+            return
         
-        with open(progress_log, 'w') as f:
-            f.write(f"\n\n\n")
-            f.write(f"╔{'═' * 58}╗\n")
-            f.write(f"║{' ' * 15}OVERLAY BURNER PROGRESS{' ' * 20}║\n")
-            f.write(f"╚{'═' * 58}╝\n\n")
-            f.write(f"  Processing file {idx} of {len(videos)}\n\n")
-            f.write(f"  Current: {v.name}\n\n")
-            
-            # Progress bar
-            bar_length = 50
-            filled = int(bar_length * completed / len(videos)) if completed > 0 else 0
-            bar = '█' * filled + '░' * (bar_length - filled)
-            f.write(f"  {bar} {pct}%\n\n")
-            
-            f.write(f"  [  OK  ] Completed: {progress_data['success']}\n")
-            f.write(f"  [ SKIP ] Skipped:   {progress_data['skipped']}\n")
-            f.write(f"  [ FAIL ] Failed:    {progress_data['failed']}\n\n")
+        # Update progress
+        completed = progress_data['success'] + progress_data['skipped'] + progress_data['failed']
+        
+        # Update Windows progress window or macOS progress file
+        if platform.system() == 'Windows' and progress_window:
+            progress_window.update(idx, v.name, progress_data['success'], progress_data['skipped'], progress_data['failed'], time.time() - total_start)
+        else:
+            # macOS: Write to progress file
+            pct = int(completed / len(videos) * 100) if completed > 0 else 0
+            with open(progress_log, 'w', encoding='utf-8') as f:
+                f.write(f"\n\n\n")
+                f.write(f"{'=' * 60}\n")
+                f.write(f"{'OVERLAY BURNER PROGRESS'.center(60)}\n")
+                f.write(f"{'=' * 60}\n\n")
+                f.write(f"  Processing file {idx} of {len(videos)}\n\n")
+                f.write(f"  Current: {v.name}\n\n")
+                
+                # Progress bar
+                bar_length = 50
+                filled = int(bar_length * completed / len(videos)) if completed > 0 else 0
+                bar = '#' * filled + '-' * (bar_length - filled)
+                f.write(f"  {bar} {pct}%\n\n")
+                
+                f.write(f"  [  OK  ] Completed: {progress_data['success']}\n")
+                f.write(f"  [ SKIP ] Skipped:   {progress_data['skipped']}\n")
+                f.write(f"  [ FAIL ] Failed:    {progress_data['failed']}\n\n")
             
             if progress_data['est_time']:
                 f.write(f"  [ETA] Estimated time remaining: {progress_data['est_time']}\n\n")
@@ -389,6 +577,8 @@ def main():
         if result == "success":
             file_elapsed = time.time() - file_start
             processing_times.append(file_elapsed)
+            if platform.system() == 'Windows' and progress_window:
+                progress_window.add_processing_time(file_elapsed)
             
             # Calculate estimated time remaining
             if len(processing_times) > 0:
@@ -406,40 +596,48 @@ def main():
     mins = int(total_elapsed / 60)
     secs = int(total_elapsed % 60)
     
-    # Write final progress with exit marker
-    with open(progress_log, 'w') as f:
-        f.write(f"\n\n\n")
-        f.write(f"╔{'═' * 58}╗\n")
-        f.write(f"║{' ' * 22}COMPLETE!{' ' * 27}║\n")
-        f.write(f"╚{'═' * 58}╝\n\n")
-        f.write(f"  [  OK  ] Successfully processed: {progress_data['success']}\n")
-        f.write(f"  [ SKIP ] Skipped (already done): {progress_data['skipped']}\n")
-        f.write(f"  [ FAIL ] Failed: {progress_data['failed']}\n\n")
+    # Close progress window or write final progress file
+    if platform.system() == 'Windows' and progress_window:
+        total_elapsed = time.time() - total_start
+        progress_window.show_complete(progress_data['success'], progress_data['skipped'], progress_data['failed'], total_elapsed)
+    else:
+        # macOS: Write final progress with exit marker
+        with open(progress_log, 'w', encoding='utf-8') as f:
+            f.write(f"\n\n\n")
+            f.write(f"{'=' * 60}\n")
+            f.write(f"{'COMPLETE!'.center(60)}\n")
+            f.write(f"{'=' * 60}\n\n")
+            f.write(f"  [  OK  ] Successfully processed: {progress_data['success']}\n")
+            f.write(f"  [ SKIP ] Skipped (already done): {progress_data['skipped']}\n")
+            f.write(f"  [ FAIL ] Failed: {progress_data['failed']}\n\n")
+            
+            # Show which files were skipped
+            if progress_data['skipped_files']:
+                f.write(f"  Previously processed files:\n")
+                for skipped_file in progress_data['skipped_files']:
+                    f.write(f"    • {skipped_file}\n")
+                f.write(f"\n")
+            
+            f.write(f"  Total time: {mins}m {secs}s\n\n")
+            f.write(f"  Output files saved to: with_overlay/\n\n\n")
+            f.write(f"__EXIT__")  # Marker to tell the terminal loop to exit (hidden with extra newlines)
         
-        # Show which files were skipped
-        if progress_data['skipped_files']:
-            f.write(f"  Previously processed files:\n")
-            for skipped_file in progress_data['skipped_files']:
-                f.write(f"    • {skipped_file}\n")
-            f.write(f"\n")
+        # Give Terminal time to exit
+        time.sleep(1)
         
-        f.write(f"  Total time: {mins}m {secs}s\n\n")
-        f.write(f"  Output files saved to: with_overlay/\n\n\n")
-        f.write(f"__EXIT__")  # Marker to tell the terminal loop to exit (hidden with extra newlines)
-    
-    # Give Terminal time to exit
-    time.sleep(1)
-    
-    # Force close any remaining Terminal windows showing our progress
-    subprocess.run([
-        "osascript", "-e",
-        'tell application "Terminal" to close (every window whose name contains "' + str(progress_log) + '")'
-    ], stderr=subprocess.DEVNULL)
+        # Force close any remaining progress windows
+        subprocess.run([
+            "osascript", "-e",
+            'tell application "Terminal" to close (every window whose name contains "' + str(progress_log) + '")'
+        ], stderr=subprocess.DEVNULL)
     
     summary = f"[  OK  ] Success: {progress_data['success']}  [ SKIP ] Skipped: {progress_data['skipped']}  [ FAIL ] Failed: {progress_data['failed']}\n\nTotal time: {mins}m {secs}s"
     
     log(summary)
-    user_pause("Done", summary)
+    
+    # Only pause on macOS (interactive terminal). On Windows, batch file shows completion dialog.
+    if platform.system() == 'Darwin':
+        user_pause("Done", summary)
 
 if __name__ == "__main__":
     main()

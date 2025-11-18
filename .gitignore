@@ -29,6 +29,10 @@ Thumbs.db
 *.exe
 *.bat.bak
 
+# Inno Setup
+windows/Output/
+innosetup-*.exe
+
 # Logs
 *.log
 /tmp/

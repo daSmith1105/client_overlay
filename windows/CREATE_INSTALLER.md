@@ -11,11 +11,12 @@ This guide shows you how to create a single-file installer for OverlayBurner usi
    ```
    This creates `OverlayBurner.exe` with ffmpeg bundled inside.
 
-2. **Download Inno Setup** (one-time setup):
+2. **Install Inno Setup** (one-time requirement):
    - Visit: https://jrsoftware.org/isinfo.php
-   - Download: **Inno Setup 6.x** (latest version)
-   - Install Inno Setup on your Windows machine
+   - Download: **Inno Setup 6.x** (latest stable version recommended)
+   - Run the installer and complete installation
    - Free and open-source
+   - **Note**: The Inno Setup installer is NOT included in this repo - download it fresh from the official site
 
 ## Creating the Installer
 

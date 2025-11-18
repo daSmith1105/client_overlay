@@ -80,7 +80,6 @@ if not exist "ffmpeg.exe" (
     echo 4. Place it in: %SCRIPT_DIR%
     echo 5. Run this script again
     echo.
-    pause
     exit /b 1
 )
 
@@ -94,12 +93,16 @@ echo.
 REM Change to common directory where overlay_burner.py is located
 cd ..\common
 
-REM Build with PyInstaller - include ffmpeg.exe as a binary
-pyinstaller --clean --onefile --name %APP_NAME% --add-binary "..\windows\ffmpeg.exe;." overlay_burner.py
+REM Clean build directories manually first to avoid permission issues
+if exist "build" rmdir /s /q "build" 2>nul
+if exist "dist" rmdir /s /q "dist" 2>nul
+if exist "*.spec" del /q "*.spec" 2>nul
+
+REM Build with PyInstaller - include ffmpeg.exe as a binary, no console window
+pyinstaller --onefile --noconsole --name DividiaOverlayBurner --add-binary "..\windows\ffmpeg.exe;." overlay_burner.py
 if !ERRORLEVEL! neq 0 (
     echo [ERROR] PyInstaller build failed
     cd ..\windows
-    pause
     exit /b 1
 )
 echo.
@@ -109,39 +112,36 @@ echo.
 REM Go back to windows directory
 cd ..\windows
 
-REM Copy executable to windows directory
+REM Copy executable to windows directory (optional - batch file uses common\dist version)
 echo [NOTE] Copying self-contained executable...
-if exist "..\common\dist\%APP_NAME%.exe" (
-    copy /Y "..\common\dist\%APP_NAME%.exe" "%APP_NAME%.exe" >nul
-    if !ERRORLEVEL! neq 0 (
-        echo [ERROR] Failed to copy executable
-        pause
-        exit /b 1
+if exist "..\common\dist\DividiaOverlayBurner.exe" (
+    copy /Y "..\common\dist\DividiaOverlayBurner.exe" "DividiaOverlayBurner.exe" >nul 2>&1
+    if !ERRORLEVEL! equ 0 (
+        echo [OK] Copied DividiaOverlayBurner.exe with bundled ffmpeg
+    ) else (
+        echo [WARNING] Could not copy file in use - this is OK, batch uses common\dist version
     )
-    echo [OK] Copied %APP_NAME%.exe (with bundled ffmpeg) to windows directory
+    echo.
 ) else (
-    echo [ERROR] Built executable not found
-    pause
+    echo [ERROR] Built executable not found at ..\common\dist\DividiaOverlayBurner.exe
     exit /b 1
 )
-echo.
 
 REM Display file info
 echo [SUCCESS] Build complete!
 echo.
 echo Self-contained executable created:
-dir /b "%APP_NAME%.exe" 2>nul
-dir /b "%APP_NAME%.bat" 2>nul
+dir /b "DividiaOverlayBurner.exe" 2>nul
+dir /b "DividiaOverlayBurner.bat" 2>nul
 echo.
-echo NOTE: ffmpeg.exe is bundled INSIDE %APP_NAME%.exe
-echo       You can distribute just %APP_NAME%.bat + %APP_NAME%.exe
+echo NOTE: ffmpeg.exe is bundled INSIDE DividiaOverlayBurner.exe
+echo       You can distribute just the .bat and .exe files
 echo.
 
-REM Clean up build artifacts
+REM Clean up build artifacts (keep dist folder with exe!)
 echo [NOTE] Cleaning up build artifacts...
 if exist "..\common\build" rmdir /s /q "..\common\build"
-if exist "..\common\dist" rmdir /s /q "..\common\dist"
-if exist "..\common\%APP_NAME%.spec" del /q "..\common\%APP_NAME%.spec"
+if exist "..\common\DividiaOverlayBurner.spec" del /q "..\common\DividiaOverlayBurner.spec"
 echo [OK] Cleanup complete
 echo.
 
@@ -151,10 +151,8 @@ echo ╚════════════════════════
 echo.
 echo The executable is now self-contained with ffmpeg bundled inside!
 echo.
-echo To run: Double-click %APP_NAME%.bat
+echo To run: Double-click DividiaOverlayBurner.bat
 echo.
-echo To distribute: Share %APP_NAME%.bat + %APP_NAME%.exe
+echo To distribute: Share DividiaOverlayBurner.bat and DividiaOverlayBurner.exe
 echo                (no need to include ffmpeg.exe separately)
 echo.
-
-pause
