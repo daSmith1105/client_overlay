@@ -34,6 +34,7 @@ Copy the entire `client_overlay` folder to your Windows machine via:
 4. Wait for build to complete (1-2 minutes)
 5. You should see "BUILD SUCCESSFUL!" message
 
+<<<<<<< HEAD
 ### 5. (Optional) Create Installer for Distribution
 If you want to create a professional installer:
 1. Download and install Inno Setup from: https://jrsoftware.org/isinfo.php
@@ -44,6 +45,9 @@ If you want to create a professional installer:
 **Note**: This step is optional. You can distribute just the `.bat` and `.exe` files without creating an installer.
 
 ### 6. Run the Application
+=======
+### 5. Run the Application
+>>>>>>> e4f8c96 (Initial commit: DividiaOverlayBurner cross-platform app)
 1. In `client_overlay\windows\`
 2. Double-click: `OverlayBurner.bat`
 3. Choose "Browse Files" or "Browse Folders"
